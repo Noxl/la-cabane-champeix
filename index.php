@@ -1,0 +1,32 @@
+<?php $currentPage = 'accueil'; ?> <!-- For the class"Active" in the components -->
+
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>La Cabane</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <?php include "components/navbar.php" ?>
+
+  <!-- MAIN -->
+  <main>
+    <h1>Bienvenue à La Cabane</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, culpa numquam! Vitae consequuntur quisquam
+      recusandae atque dolore?</p>
+    <p>Fugit aperiam ipsum voluptatum esse eius. Corporis iste ab exercitationem repellendus.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <?php include "components/footer.php" ?>
+  
+</body>
+
+</html>
