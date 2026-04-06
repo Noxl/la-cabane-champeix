@@ -27,4 +27,4 @@ const footerHTML = `
 `;
 
 // Insert it into the page
-document.getElementById('header-container').innerHTML = footerHTML;
+document.getElementById('footer-container').innerHTML = footerHTML;
