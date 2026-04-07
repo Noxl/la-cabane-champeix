@@ -7,9 +7,20 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" />
 </head>
 
 <body>
+  <!-- Snipcart API Setup -->
+  <div id="snipcart" hidden></div>
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "N2I3ZTkwZDktMjliMy00YjJiLThjYzItYmY2MzNhMmRmOGRmNjM5MTEwODQ5MDM4MjI0MzM3",
+      loadStrategy: "immediate",
+      modalStyle: "side"
+    };
+  </script>
+
   <!-- NAVBAR -->
   <div id="header-container"></div>
 
@@ -26,8 +37,10 @@
 
 
   <!-- SCRIPTS -->
+  <script src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js" async></script>
   <script src="header.js"></script>
   <script src="footer.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

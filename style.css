@@ -22,7 +22,7 @@ main {
 ul#connection-menu {
     display: flex;
     align-items: center;
-    padding: 2px 20px;  
+    padding: 2px 20px;
     list-style: none;
     margin: 0;
     background-color: #5d6fa8;
@@ -44,17 +44,21 @@ ul#connection-menu .title {
     font-weight: 400;
     font-size: 22px;
     letter-spacing: 3px;
-    transition: letter-spacing 1s ease, transform 1s ease; 
+    transition: letter-spacing 1s ease, transform 1s ease;
 }
 
 /* Hover effect: expand letters */
 ul#connection-menu .title:hover {
-    letter-spacing: 20px;   /* bigger spacing on hover */
-    transform: translateX(-50%) scale(1.05); /* subtle zoom */
+    letter-spacing: 20px;
+    /* bigger spacing on hover */
+    transform: translateX(-50%) scale(1.05);
+    /* subtle zoom */
 }
+
 /* Right items */
 ul#connection-menu li.right {
     margin-left: auto;
+    font-size: 13px;
     /* push to right */
 }
 
@@ -66,11 +70,87 @@ ul#connection-menu li.right a {
     color: rgb(221, 225, 244);
     text-decoration: none;
     margin-left: 32px;
+    position: relative;
 }
 
 /* Icon hover effect */
 ul#connection-menu li.right a:hover iconify-icon {
     transform: scale(1.2);
+}
+
+/* Make the link a relative container */
+ul#connection-menu li.right a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgb(221, 225, 244);
+    text-decoration: none;
+    margin-left: 32px;
+    position: relative;
+    /* for dot positioning */
+}
+
+.account-menu {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown itself */
+.account-dropdown {
+    display: none;
+    /* hidden by default */
+    position: absolute;
+    /* just below the icon */
+    right: 0;
+    /* align to parent link */
+    background-color: #5d6fa8;
+    border-radius: 0 0 4px 4px;
+    padding: 0;
+    margin: 0;
+    min-width: 160px;
+    list-style: none;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+/* Dropdown items */
+.account-dropdown li {
+    margin: 0;
+    padding: 0;
+}
+
+.account-dropdown li a {
+    display: block;
+    padding: 8px 12px;
+    color: #dde1f4;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.account-dropdown li a:hover {
+    background-color: rgba(221, 225, 244, 0.1);
+}
+
+/* Status dot */
+.status-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    /* default disconnected */
+    border: 1px solid white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Icon hover scaling */
+.icon-wrapper:hover .user-icon,
+.icon-wrapper:hover .status-dot {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
 }
 
 /* ---------------- Navbar ---------------- */
@@ -84,7 +164,6 @@ ul#menu {
     position: sticky;
     top: 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    z-index: 100;
     gap: 10px;
 }
 

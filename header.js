@@ -7,18 +7,27 @@ const headerHTML = `
     <li class="title">La Cabane</li>
 
     <!-- Right icons -->
-    <li class="right">
-        <a href="panier.html" class="popup-link" data-width="600" data-height="500">
-            <iconify-icon icon="mynaui:shopping-bag" width="30" height="30"></iconify-icon>
-            <span>Panier</span>
-        </a>
-    </li>
-    <li class="right">
-        <a href="compte.html" class="snipcart-customer-signin" data-width="600" data-height="500">
-            <iconify-icon icon="mynaui:user" width="30" height="30"></iconify-icon>
-            <span>Compte</span>
-        </a>
-    </li>
+<li class="right">
+    <a href="#" class="snipcart-checkout">
+        <iconify-icon icon="mynaui:shopping-bag" width="30" height="30"></iconify-icon>
+        <span>Panier</span>
+    </a>
+</li>
+<li class="right account-menu">
+    <a href="#" class="snipcart-customer-signin">
+        <span class="icon-wrapper" style="position: relative; display: inline-block;">
+            <iconify-icon class="user-icon" icon="mynaui:user" width="30" height="30"></iconify-icon>
+            <span class="status-dot"></span>
+        </span>
+        <span>Compte</span>
+    </a>
+
+    <!-- Dropdown menu -->
+<ul class="account-dropdown">
+    <li><a href="#" class="order-history">Order History</a></li>
+    <li><a href="#" class="logout">Logout</a></li>
+</ul>
+</li>
 </ul>
 
 <ul id="menu">
