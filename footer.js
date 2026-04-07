@@ -1,4 +1,6 @@
-const footerHTML = `
+// footer.js — La Cabane
+
+document.getElementById('footer-container').innerHTML = `
   <div id="pre_footer">
     <div id="left_column">
       <h2>Horaires d'ouverture</h2>
@@ -11,20 +13,15 @@ const footerHTML = `
       <p>Dimanche : Fermé</p>
     </div>
     <div id="center_column">
-      <img src="medias/logo_cabane.png" alt="Logo">
+      <img src="medias/logo_cabane.png" alt="Logo La Cabane">
     </div>
     <div id="right_column">
-      <h2>Contact et Informations</h2>
-      <p>Tel : 07.89.92.93.04</p>
+      <h2>Contact &amp; Informations</h2>
+      <p>Tél : 07.89.92.93.04</p>
       <p>Mail : contact@lacabane-champeix.com</p>
     </div>
   </div>
-
-  <!-- Footer -->
   <footer>
-    <p>La Cabane - Champeix © 2026</p>
+    <p>La Cabane — Champeix &copy; 2026</p>
   </footer>
 `;
-
-// Insert it into the page
-document.getElementById('footer-container').innerHTML = footerHTML;

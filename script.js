@@ -1,79 +1,65 @@
-document.addEventListener("snipcart.ready", function () {
+// script.js — La Cabane
+// Handles Snipcart account menu interactions
 
-    function initMenu() {
-        const accountMenu = document.querySelector('.account-menu');
-        const dropdown = document.querySelector('.account-dropdown');
-        const statusDot = document.querySelector('.status-dot');
-        const signinBtn = document.querySelector('.snipcart-customer-signin');
+document.addEventListener('snipcart.ready', () => {
 
-        if (!accountMenu || !dropdown || !statusDot || !signinBtn) {
-            setTimeout(initMenu, 100);
-            return;
-        }
+  // Wait for the header to be injected by header.js
+  function init() {
+    const accountBtn  = document.getElementById('account-btn');
+    const dropdown    = document.getElementById('account-dropdown');
+    const statusDot   = document.getElementById('status-dot');
+    const orderBtn    = document.getElementById('btn-order-history');
+    const logoutBtn   = document.getElementById('btn-logout');
 
-        let isLoggedIn = false;
-
-        // ✅ CLICK behavior
-        signinBtn.addEventListener('click', function (e) {
-
-            if (isLoggedIn) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                dropdown.style.display =
-                    dropdown.style.display === 'block' ? 'none' : 'block';
-            }
-        });
-
-        // ✅ Close outside
-        document.addEventListener('click', function (e) {
-            if (!accountMenu.contains(e.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
-
-        // ✅ Update UI
-        function updateUI(customer) {
-            if (customer && customer.email) {
-                isLoggedIn = true;
-                statusDot.style.backgroundColor = 'green';
-            } else {
-                isLoggedIn = false;
-                statusDot.style.backgroundColor = 'red';
-                dropdown.style.display = 'none';
-            }
-        }
-
-        Snipcart.store.subscribe(() => {
-            const state = Snipcart.store.getState();
-            updateUI(state.customer);
-        });
-
-        document.addEventListener('snipcart.customer.login', (e) => updateUI(e.detail.customer));
-        document.addEventListener('snipcart.customer.logout', () => updateUI(null));
-
-        // ✅ Dropdown actions
-
-        const orderBtn = dropdown.querySelector('.order-history');
-        const logoutBtn = dropdown.querySelector('.logout');
-
-        if (orderBtn) {
-            orderBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                Snipcart.api.theme.cart.open(); // ✅ opens full account/cart UI
-            });
-        }
-
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                Snipcart.api.customer.signout(); // ✅ logout works
-            });
-        }
-
-        console.log("✅ Fully working menu");
-
+    // Retry if header hasn't rendered yet
+    if (!accountBtn || !dropdown || !statusDot) {
+      setTimeout(init, 100);
+      return;
     }
 
-    initMenu();
+    let isLoggedIn = false;
+
+    // Toggle dropdown only when logged in; otherwise open Snipcart sign-in modal
+    accountBtn.addEventListener('click', (e) => {
+      if (isLoggedIn) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!accountBtn.closest('.account-menu').contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+
+    // Update dot colour and login state
+    function updateAuth(customer) {
+      isLoggedIn = !!(customer?.email);
+      statusDot.classList.toggle('connected', isLoggedIn);
+      if (!isLoggedIn) dropdown.classList.remove('open');
+    }
+
+    // Subscribe to Snipcart store changes
+    Snipcart.store.subscribe(() => {
+      updateAuth(Snipcart.store.getState().customer);
+    });
+
+    // Dropdown actions
+    orderBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdown.classList.remove('open');
+      Snipcart.api.theme.cart.open();
+    });
+
+    logoutBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      dropdown.classList.remove('open');
+      Snipcart.api.customer.signout();
+    });
+  }
+
+  init();
 });
