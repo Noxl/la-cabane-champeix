@@ -1,51 +1,64 @@
 /* ================================================
-   topbar.css — Top connection bar & account dropdown
+   topbar.css — Slim top utility bar
    ================================================ */
 
 #connection-menu {
   display: flex;
   align-items: center;
-  padding: 4px 20px;
-  background-color: var(--color-primary-dk);
+  padding: 6px 32px;
+  background-color: var(--green);
   position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 #connection-menu .left {
   flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--green-pale);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  opacity: 0.7;
 }
 
 #connection-menu .title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: var(--color-text-nav-muted);
-  font-weight: 400;
-  font-size: 22px;
-  letter-spacing: 3px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
+  letter-spacing: 4px;
+  color: var(--parchment);
   white-space: nowrap;
   pointer-events: none;
-  transition: letter-spacing 0.8s ease;
 }
 
 #connection-menu .right-icons {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
 #connection-menu .nav-icon-link {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: var(--color-text-nav);
-  font-size: 13px;
-  padding: 4px 8px;
-  border-radius: var(--radius-sm);
-  transition: background-color var(--transition);
+  gap: 5px;
+  color: var(--green-pale);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 #connection-menu .nav-icon-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 /* ---- Account menu ---- */
@@ -61,36 +74,37 @@
 
 .status-dot {
   position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 9px;
-  height: 9px;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: #e05555;
-  border: 1.5px solid var(--color-primary-dk);
+  background-color: var(--rust);
+  border: 1.5px solid var(--green);
   transition: background-color 0.3s ease;
 }
 
 .status-dot.connected {
-  background-color: #4caf7d;
+  background-color: #6abf7b;
 }
 
 /* ---- Account dropdown ---- */
 .account-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 8px);
   right: 0;
-  min-width: 170px;
-  background-color: var(--color-primary-dk);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  min-width: 180px;
+  background-color: var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
-  z-index: 200;
+  z-index: 20;
   opacity: 0;
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   transition: opacity var(--transition), transform var(--transition);
   pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .account-dropdown.open {
@@ -102,12 +116,373 @@
 
 .account-dropdown li a {
   display: block;
-  padding: 10px 16px;
-  color: var(--color-text-nav);
-  font-size: 14px;
-  transition: background-color var(--transition);
+  padding: 11px 18px;
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  transition: background-color var(--transition), padding-left var(--transition);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.account-dropdown li:last-child a {
+  border-bottom: none;
 }
 
 .account-dropdown li a:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.07);
+  padding-left: 24px;
+}
+
+/* ---- Cart badge ---- */
+.cart-icon-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 17px;
+  text-align: center;
+  font-family: var(--font-body);
+  border: 1.5px solid var(--green);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.cart-badge.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ---- Dropdown icon alignment ---- */
+.account-dropdown li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ════════════════════════════════════════════════
+   ORDER HISTORY PANEL
+   ════════════════════════════════════════════════ */
+
+#order-history-panel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+}
+
+#order-history-panel.open {
+  display: block;
+}
+
+.ohp-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 26, 22, 0.45);
+  backdrop-filter: blur(3px);
+  animation: ohpFadeIn 0.25s ease both;
+}
+
+.ohp-drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 460px;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 48px rgba(28, 26, 22, 0.18);
+  animation: ohpSlideIn 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+  overflow: hidden;
+}
+
+@keyframes ohpFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes ohpSlideIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+
+/* Header */
+.ohp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 28px 22px;
+  background: var(--green);
+  flex-shrink: 0;
+}
+
+.ohp-eyebrow {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--green-muted);
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-family: var(--font-body);
+}
+
+.ohp-title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.7rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin: 0;
+}
+
+.ohp-close {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  cursor: pointer;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.ohp-close:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Body */
+.ohp-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Loading */
+.ohp-loading {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--ink-muted);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.ohp-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: ohpSpin 0.7s linear infinite;
+}
+
+@keyframes ohpSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.ohp-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 14px;
+  font-weight: 300;
+  padding: 40px 20px;
+}
+
+.ohp-empty iconify-icon {
+  color: var(--color-border);
+}
+
+.ohp-shop-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 10px 24px;
+  background: var(--green);
+  color: var(--cream);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background var(--transition);
+}
+
+.ohp-shop-btn:hover {
+  background: var(--green-lt);
+}
+
+/* Order card */
+.ohp-order {
+  background: #fff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  animation: fadeUp 0.3s ease both;
+}
+
+.ohp-order-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 18px 10px;
+  gap: 12px;
+}
+
+.ohp-order-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ohp-order-number {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.5px;
+}
+
+.ohp-order-date {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-weight: 300;
+}
+
+.ohp-order-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.ohp-status {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.ohp-order-total {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+/* Accordion toggle */
+.ohp-order-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 18px;
+  background: var(--cream);
+  border: none;
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-muted);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.ohp-order-toggle:hover {
+  background: var(--cream-dk);
+  color: var(--ink);
+}
+
+/* Items list */
+.ohp-order-items {
+  display: none;
+  flex-direction: column;
+  gap: 1px;
+  border-top: 1px solid var(--color-border);
+  background: var(--cream);
+  padding: 10px 18px 14px;
+}
+
+.ohp-order-items.open {
+  display: flex;
+}
+
+.ohp-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(213, 203, 184, 0.4);
+  gap: 12px;
+}
+
+.ohp-item:last-of-type {
+  border-bottom: none;
+}
+
+.ohp-item-name {
+  font-size: 13px;
+  color: var(--ink-lt);
+  font-weight: 300;
+}
+
+.ohp-item-meta {
+  font-size: 12px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.ohp-tracking-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: color var(--transition);
+}
+
+.ohp-tracking-link:hover {
+  color: var(--green-lt);
+}
+
+@media (max-width: 500px) {
+  .ohp-drawer {
+    max-width: 100%;
+  }
 }

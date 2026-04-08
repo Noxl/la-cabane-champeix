@@ -1,0 +1,105 @@
+/* ================================================
+   snipcart-theme.css — Custom Snipcart skin
+   Overrides the default Snipcart v3 theme to match
+   La Cabane's design system.
+   ================================================ */
+
+:root {
+  --color-default:        #1c1a16;
+  --color-alt:            #7a7468;
+  --color-badge:          #2e4a35;
+  --color-badge-active:   #3d6147;
+  --color-button-default: #2e4a35;
+  --color-button-hover:   #3d6147;
+  --color-input:          #f5f0e8;
+  --color-input-border:   #d5cbb8;
+  --color-link:           #2e4a35;
+  --color-link-hover:     #3d6147;
+  --color-error:          #8b4c2f;
+  --borderradius-button:  999px;
+  --borderradius-item:    10px;
+  --font-family:          'DM Sans', sans-serif;
+}
+
+/* Panel header */
+#snipcart .snipcart-modal__header,
+#snipcart .snipcart-cart-header {
+  background-color: #2e4a35;
+  color: #f5f0e8;
+}
+
+#snipcart .snipcart-cart-header__title,
+#snipcart .snipcart-modal__header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #f5f0e8;
+}
+
+/* Close / back buttons */
+#snipcart .snipcart-cart-header__close-button svg,
+#snipcart .snipcart-modal__close svg {
+  stroke: #f5f0e8;
+}
+
+/* Item cards */
+#snipcart .snipcart-item-list__item {
+  border-bottom: 1px solid #e8dfc8;
+}
+
+/* Checkout button */
+#snipcart .snipcart-cart__footer-summary .snipcart-button-primary,
+#snipcart .snipcart__actions--link.snipcart-button-primary {
+  background-color: #2e4a35;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.28s ease;
+}
+
+#snipcart .snipcart__actions--link.snipcart-button-primary:hover,
+#snipcart .snipcart-cart__footer-summary .snipcart-button-primary:hover {
+  background-color: #3d6147;
+}
+
+/* Quantity controls */
+#snipcart .snipcart-item-quantity__quantity {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Price / totals */
+#snipcart .snipcart-cart__footer-total,
+#snipcart .snipcart-cart-summary__total-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: #1c1a16;
+}
+
+/* Form inputs */
+#snipcart input,
+#snipcart select,
+#snipcart textarea {
+  border-radius: 8px;
+  border-color: #d5cbb8;
+  font-family: 'DM Sans', sans-serif;
+}
+
+#snipcart input:focus,
+#snipcart select:focus {
+  border-color: #2e4a35;
+  box-shadow: 0 0 0 3px rgba(46, 74, 53, 0.1);
+}
+
+/* Labels */
+#snipcart .snipcart-form__label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #3d3a33;
+  font-weight: 500;
+}

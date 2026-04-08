@@ -312,7 +312,7 @@ function renderProductCard(p) {
           data-item-id="${escapeHTML(p.id)}"
           data-item-name="${escapeHTML(p.name)}"
           data-item-price="${p.price.toFixed(2)}"
-          data-item-url="/boutique.html"
+          data-item-url="boutique.html"
           data-item-description="${escapeHTML(p.snipcartDescription)}"
           data-item-weight="${p.weight}">
           <iconify-icon icon="mynaui:shopping-bag" width="16" height="16"></iconify-icon> Ajouter

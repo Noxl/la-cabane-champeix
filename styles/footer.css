@@ -1,48 +1,128 @@
 /* ================================================
-   footer.css — Pre-footer info band & footer bar
+   footer.css — Pre-footer & footer
    ================================================ */
 
+/* ---- Pre-footer ---- */
 #pre_footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 30px 20px;
-  background-color: var(--color-prefooter-bg);
-  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  gap: 48px;
+  padding: 64px 60px 56px;
+  background-color: var(--green);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative leaf shapes */
+#pre_footer::before,
+#pre_footer::after {
+  content: '';
+  position: absolute;
+  border-radius: 50% 0 50% 0;
+  opacity: 0.06;
+  background: #fff;
+}
+#pre_footer::before {
+  width: 300px; height: 300px;
+  top: -80px; right: -60px;
+  transform: rotate(30deg);
+}
+#pre_footer::after {
+  width: 200px; height: 200px;
+  bottom: -60px; left: 40px;
+  transform: rotate(-20deg);
 }
 
 #pre_footer > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 6px;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
 }
 
 #pre_footer h2 {
-  font-size: 17px;
-  color: #555;
-  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--gold-lt);
+  margin: 0 0 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
 
 #pre_footer p {
-  font-size: 14px;
-  color: #777;
-  margin: 1px 0;
-  line-height: 1.4;
+  font-size: 13px;
+  color: rgba(245, 240, 232, 0.72);
+  margin: 0;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* Center column — logo */
+#center_column {
+  align-items: center;
+  text-align: center;
+  gap: 16px;
 }
 
 #center_column img {
-  width: 110px;
+  width: 80px;
+  opacity: 0.9;
+  filter: brightness(0) invert(1) opacity(0.85);
 }
 
+#center_column .footer-brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--parchment);
+  letter-spacing: 2px;
+}
+
+#center_column .footer-tagline {
+  font-size: 11px;
+  color: var(--green-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* ---- Divider between pre-footer and footer ---- */
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  margin: 0 60px;
+  background-color: var(--green);
+}
+
+/* ---- Footer bar ---- */
 footer {
-  text-align: center;
-  padding: 22px;
-  background-color: var(--color-footer-bg);
-  color: #666;
-  font-size: 14px;
-  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background-color: var(--green);
+  color: rgba(245, 240, 232, 0.4);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+footer a {
+  color: rgba(245, 240, 232, 0.5);
+  transition: color var(--transition);
+}
+
+footer a:hover {
+  color: var(--parchment);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
 }

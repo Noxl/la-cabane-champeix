@@ -1,42 +1,98 @@
 /* ================================================
-   contact.css — Contact page layout & form
+   contact.css — Contact page
    ================================================ */
 
 .contact-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
-  margin: 40px;
+  gap: 60px;
+  margin: 60px auto;
+  max-width: 1100px;
+  padding: 0 48px;
 }
 
+/* ---- Left panel ---- */
 .left-contact-section {
   flex: 1;
+  padding-top: 8px;
 }
 
+.left-contact-section h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 24px;
+}
+
+.left-contact-section p {
+  color: var(--ink-muted);
+  font-weight: 300;
+  line-height: 1.8;
+  font-size: 15px;
+  margin: 0;
+}
+
+.contact-info-block {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink-lt);
+  font-weight: 300;
+}
+
+.contact-info-item iconify-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ---- Divider ---- */
+.contact-vr {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
+  flex-shrink: 0;
+}
+
+/* ---- Right panel (form) ---- */
 .right-contact-section {
   flex: 1;
-  max-width: 40rem;
-  padding: 2rem 1rem;
+  max-width: 480px;
 }
 
-.contact-intro + * {
-  margin-top: 1rem;
+.contact-intro {
+  margin-bottom: 28px;
 }
 
 .contact-title {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 6px;
 }
 
 .contact-description {
-  color: #6b7280;
+  color: var(--ink-muted);
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
 }
 
 .form-group-container {
   display: grid;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 16px;
 }
 
 .form-group {
@@ -45,55 +101,67 @@
 }
 
 .form-label {
-  margin-bottom: 0.4rem;
-  font-size: 15px;
+  margin-bottom: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--ink-lt);
 }
 
 .form-input,
 .form-textarea {
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.375rem;
-  font-family: var(--font-main);
-  font-size: 15px;
+  padding: 11px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink);
+  background: #fff;
   width: 100%;
-  transition: outline var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-.form-input {
-  height: 2.6rem;
-}
+.form-input { height: 44px; }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #9ca3af;
+  color: #b8b0a2;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(46, 74, 53, 0.08);
 }
 
 .form-textarea {
-  min-height: 120px;
+  min-height: 130px;
   resize: vertical;
 }
 
 .form-submit {
   width: 100%;
-  margin-top: 1.2rem;
-  background-color: var(--color-primary-dk);
-  color: #fff;
-  padding: 13px;
+  margin-top: 20px;
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 14px;
   border: none;
-  border-radius: 0.375rem;
-  font-family: var(--font-main);
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), transform 0.15s ease, box-shadow var(--transition);
+  box-shadow: 0 2px 10px rgba(46, 74, 53, 0.25);
 }
 
 .form-submit:hover {
-  background-color: var(--color-primary);
+  background-color: var(--green-lt);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(46, 74, 53, 0.3);
 }

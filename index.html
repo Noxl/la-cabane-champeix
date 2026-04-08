@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>La Cabane</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
-  <!-- Snipcart -->
+  <title>La Cabane — Salon de thé, Champeix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css">
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <!-- Styles -->
   <link rel="stylesheet" href="styles/consts.css">
   <link rel="stylesheet" href="styles/topbar.css">
   <link rel="stylesheet" href="styles/navbar.css">
   <link rel="stylesheet" href="styles/footer.css">
   <link rel="stylesheet" href="styles/responsive.css">
+  <link rel="stylesheet" href="styles/snipcart-theme.css">
+  <link rel="stylesheet" href="styles/pages/home.css">
 </head>
 <body>
 
@@ -21,12 +22,77 @@
 
   <div id="header-container"></div>
 
-  <main>
-    <h1>Bienvenue à La Cabane</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, culpa numquam! Vitae consequuntur quisquam
-      recusandae atque dolore?</p>
-    <p>Fugit aperiam ipsum voluptatum esse eius. Corporis iste ab exercitationem repellendus.</p>
-  </main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Salon de thé · Champeix, Auvergne</p>
+      <h1>Un instant de<br>bananes au chocolat</h1>
+      <p class="hero-subtitle">Venez découvrir nos bananes au chocolat, dans un cadre chaleureux au cœur de l'Auvergne.</p>
+      <div class="hero-actions">
+        <a href="boutique.html" class="btn-primary">
+          <iconify-icon icon="ph:leaf" width="15" height="15"></iconify-icon>
+          Découvrir nos Pets LOL PET
+        </a>
+        <a href="salon.html" class="btn-outline">Notre salon</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Feature strip -->
+  <div class="feature-strip">
+    <div class="feature-item">
+      <div class="feature-icon">
+        <iconify-icon icon="ph:globe-hemisphere-east" width="32" height="32"></iconify-icon>
+      </div>
+      <h3>OuiouiBiensur écoutez le</h3>
+      <p>J'aime les carottes et les bananes</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <iconify-icon icon="ph:house" width="32" height="32"></iconify-icon>
+      </div>
+      <h3>Salon de Pet</h3>
+      <p>Lol jépété, chat jépété</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <iconify-icon icon="ph:package" width="32" height="32"></iconify-icon>
+      </div>
+      <h3>OHHHHHLOLLO</h3>
+      <p>Ouais voila quoi</p>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="about-section">
+    <div class="about-text">
+      <p class="about-eyebrow">Notre histoire</p>
+      <h2>ET ON FAIT TOURNER LES SERVIETTES OUAIS</h2>
+      <p>Blablabla ne me lisez pas venez manger des putains de quiches quoi</p>
+      <p>Ouais les quiches écoutez le.</p>
+      <a href="salon.html" class="btn-dark" style="margin-top:8px;">
+        En savoir MOINS
+        <iconify-icon icon="ph:arrow-right" width="14" height="14"></iconify-icon>
+      </a>
+    </div>
+    <div class="about-visual">
+      <div class="about-visual-box">🍃</div>
+      <div class="about-visual-accent"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Prêt à explorer notre sélection ?</h2>
+    <p>Benh non pas du tout.</p>
+    <a href="boutique.html" class="btn-primary">
+      <iconify-icon icon="ph:shopping-bag" width="15" height="15"></iconify-icon>
+      Visiter la tiquebou
+    </a>
+  </section>
 
   <div id="footer-container"></div>
 
@@ -34,6 +100,5 @@
   <script src="html_compon/header.js"></script>
   <script src="html_compon/footer.js"></script>
   <script src="scripts/snipcart_interactions.js"></script>
-
 </body>
 </html>

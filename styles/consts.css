@@ -1,53 +1,87 @@
 /* ================================================
-   consts.css — Global variables, reset & base
+   consts.css — Design system: La Cabane
+   Aesthetic: wabi-sabi / artisan tea house
    ================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
 :root {
-  --color-primary:        #7b8fc1;
-  --color-primary-dk:     #5d6fa8;
-  --color-primary-lt:     #9aaad4;
-  --color-text-nav:       #dde1f4;
-  --color-text-nav-muted: #99a4c9;
-  --color-body:           #333;
-  --color-bg:             #fdfdfd;
-  --color-footer-bg:      #f4f4f4;
-  --color-prefooter-bg:   #f7f8fa;
-  --color-border:         #ddd;
-  --font-main:            "Trirong", serif;
-  --shadow-nav:           0 4px 10px rgba(0, 0, 0, 0.08);
-  --radius-sm:            4px;
-  --radius-md:            7px;
-  --transition:           0.25s ease;
+  /* ---- Palette ---- */
+  --cream:           #f5f0e8;
+  --cream-dk:        #ede5d8;
+  --parchment:       #e8dfc8;
+  --ink:             #1c1a16;
+  --ink-lt:          #3d3a33;
+  --ink-muted:       #7a7468;
+  --green:           #2e4a35;
+  --green-lt:        #3d6147;
+  --green-muted:     #8aad8f;
+  --green-pale:      #d4e4d6;
+  --gold:            #b8924a;
+  --gold-lt:         #d4ab6a;
+  --rust:            #8b4c2f;
+
+  /* ---- Semantic aliases ---- */
+  --color-bg:           var(--cream);
+  --color-surface:      var(--cream-dk);
+  --color-border:       #d5cbb8;
+  --color-text:         var(--ink);
+  --color-text-muted:   var(--ink-muted);
+  --color-accent:       var(--green);
+  --color-accent-lt:    var(--green-lt);
+  --color-gold:         var(--gold);
+
+  /* ---- Typography ---- */
+  --font-display:   'Cormorant Garamond', Georgia, serif;
+  --font-body:      'DM Sans', sans-serif;
+
+  /* ---- Spacing & shape ---- */
+  --radius-sm:    4px;
+  --radius-md:    10px;
+  --radius-lg:    20px;
+  --radius-pill:  999px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm:    0 1px 4px rgba(28, 26, 22, 0.08);
+  --shadow-md:    0 4px 20px rgba(28, 26, 22, 0.10);
+  --shadow-lg:    0 12px 48px rgba(28, 26, 22, 0.14);
+
+  /* ---- Motion ---- */
+  --transition:      0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; }
+ul { list-style: none; margin: 0; padding: 0; }
+a  { text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
+/* ---- Base ---- */
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: var(--font-main);
-  font-size: 18px;
-  color: var(--color-body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.6;
+  line-height: 1.7;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
 }
 
 main {
-  padding: 40px 20px;
-  max-width: 1200px;
+  padding: 60px 40px;
+  max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s var(--transition) both;
 }

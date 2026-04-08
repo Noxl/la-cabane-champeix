@@ -1,0 +1,571 @@
+/* ================================================
+   actualites.css — News & agenda page
+   ================================================ */
+
+/* ---- Page header ---- */
+.actu-page-header {
+  text-align: center;
+  padding: 72px 20px 40px;
+  position: relative;
+}
+
+.actu-page-header .eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+
+.actu-page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.actu-page-header p {
+  color: var(--ink-muted);
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.actu-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+  margin: 20px auto 0;
+}
+
+/* ════════════════════════════════
+   NEWS CARDS
+   ════════════════════════════════ */
+
+.news-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+.news-section-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.news-section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* ---- News grid ---- */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* ---- News card ---- */
+.news-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  cursor: default;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Image area */
+.news-card-image {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  position: relative;
+  background: var(--green-pale);
+  flex-shrink: 0;
+}
+
+.news-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.news-card:hover .news-card-image img {
+  transform: scale(1.04);
+}
+
+/* Placeholder when no image */
+.news-card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+}
+
+/* Tag badge */
+.news-card-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.92);
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(46, 74, 53, 0.15);
+}
+
+/* Body */
+.news-card-body {
+  padding: 14px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 5px;
+}
+
+.news-card-date {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+}
+
+.news-card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 2px 0 0;
+  line-height: 1.3;
+}
+
+.news-card-excerpt {
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 4px 0 0;
+  flex: 1;
+}
+
+.news-card-footer {
+  padding: 10px 16px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(213, 203, 184, 0.5);
+}
+
+.news-card-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-weight: 300;
+}
+
+.news-card-author-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--green-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.news-read-more {
+  font-size: 12px;
+  color: var(--green);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap var(--transition), color var(--transition);
+}
+
+.news-card:hover .news-read-more {
+  gap: 8px;
+  color: var(--green-lt);
+}
+
+/* ════════════════════════════════
+   AGENDA / CALENDAR
+   ════════════════════════════════ */
+
+.agenda-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px 80px;
+}
+
+.agenda-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ---- Mini calendar ---- */
+.calendar-widget {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  background: var(--green);
+}
+
+.cal-month-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--cream);
+  text-transform: capitalize;
+}
+
+.cal-nav {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  cursor: pointer;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.cal-nav:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+/* Day-of-week header */
+.cal-dow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 10px 12px 4px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cal-dow span {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Days grid */
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  padding: 10px 12px 16px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--ink-lt);
+  cursor: default;
+  position: relative;
+  transition: background var(--transition), color var(--transition);
+}
+
+.cal-day.other-month {
+  color: var(--color-border);
+}
+
+.cal-day.today {
+  background: var(--green-pale);
+  color: var(--green);
+  font-weight: 500;
+}
+
+.cal-day.has-event {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--green);
+}
+
+.cal-day.has-event::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.cal-day.has-event:hover {
+  background: var(--green-pale);
+}
+
+.cal-day.selected {
+  background: var(--green) !important;
+  color: var(--cream) !important;
+}
+
+.cal-day.selected::after {
+  background: var(--gold-lt);
+}
+
+/* Event list below calendar */
+.cal-events-preview {
+  border-top: 1px solid var(--color-border);
+  padding: 14px 16px;
+  min-height: 60px;
+}
+
+.cal-events-preview-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.cal-event-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--cream);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--green);
+  font-size: 12px;
+  color: var(--ink-lt);
+  font-weight: 300;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.cal-event-pill:hover {
+  background: var(--cream-dk);
+}
+
+.cal-event-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.cal-no-event {
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* ---- Event cards (right column) ---- */
+.agenda-events {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.event-card {
+  display: flex;
+  gap: 20px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.event-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.event-card.dimmed {
+  opacity: 0.4;
+}
+
+.event-card.highlighted {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(46, 74, 53, 0.12);
+}
+
+.event-date-block {
+  background: var(--green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  flex-shrink: 0;
+  min-width: 72px;
+}
+
+.event-day {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green-muted);
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.event-body {
+  padding: 16px 20px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.event-time {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 400;
+}
+
+.event-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.event-description {
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 300;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.event-tag {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 12px;
+  background: var(--green-pale);
+  color: var(--green);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .news-section,
+  .agenda-section {
+    padding: 0 20px 60px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .calendar-widget {
+    position: static;
+  }
+
+  .event-card {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .event-date-block {
+    flex-direction: row;
+    gap: 6px;
+    justify-content: flex-start;
+    padding: 12px 20px;
+  }
+
+  .event-month {
+    margin-top: 0;
+    align-self: flex-end;
+    padding-bottom: 1px;
+  }
+
+  .event-body {
+    padding: 14px 20px;
+  }
+}
