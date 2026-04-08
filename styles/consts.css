@@ -2,26 +2,24 @@
    consts.css — Global variables, reset & base
    ================================================ */
 
-/* ---------------- CSS Variables ---------------- */
 :root {
-  --color-primary:          #7b8fc1;
-  --color-primary-dk:       #5d6fa8;
-  --color-primary-lt:       #9aaad4;
-  --color-text-nav:         #dde1f4;
-  --color-text-nav-muted:   #99a4c9;
-  --color-body:             #333;
-  --color-bg:               #fdfdfd;
-  --color-footer-bg:        #f4f4f4;
-  --color-prefooter-bg:     #f7f8fa;
-  --color-border:           #ddd;
-  --font-main:              "Trirong", serif;
-  --shadow-nav:             0 4px 10px rgba(0, 0, 0, 0.08);
-  --radius-sm:              4px;
-  --radius-md:              7px;
-  --transition:             0.25s ease;
+  --color-primary:        #7b8fc1;
+  --color-primary-dk:     #5d6fa8;
+  --color-primary-lt:     #9aaad4;
+  --color-text-nav:       #dde1f4;
+  --color-text-nav-muted: #99a4c9;
+  --color-body:           #333;
+  --color-bg:             #fdfdfd;
+  --color-footer-bg:      #f4f4f4;
+  --color-prefooter-bg:   #f7f8fa;
+  --color-border:         #ddd;
+  --font-main:            "Trirong", serif;
+  --shadow-nav:           0 4px 10px rgba(0, 0, 0, 0.08);
+  --radius-sm:            4px;
+  --radius-md:            7px;
+  --transition:           0.25s ease;
 }
 
-/* ---------------- Reset ---------------- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -36,7 +34,6 @@ a {
   text-decoration: none;
 }
 
-/* ---------------- Base ---------------- */
 body {
   margin: 0;
   font-family: var(--font-main);

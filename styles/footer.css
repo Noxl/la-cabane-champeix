@@ -2,7 +2,6 @@
    footer.css — Pre-footer info band & footer bar
    ================================================ */
 
-/* ---- Pre-footer ---- */
 #pre_footer {
   display: flex;
   justify-content: space-around;
@@ -39,7 +38,6 @@
   width: 110px;
 }
 
-/* ---- Footer ---- */
 footer {
   text-align: center;
   padding: 22px;

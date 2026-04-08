@@ -1,4 +1,11 @@
 
+// API + Snipcart settings
+window.SnipcartSettings = {
+  publicApiKey: "N2I3ZTkwZDktMjliMy00YjJiLThjYzItYmY2MzNhMmRmOGRmNjM5MTEwODQ5MDM4MjI0MzM3",
+  loadStrategy: "immediate",
+  modalStyle: "side"
+};
+
 // Handles Snipcart account menu interactions
 document.addEventListener('snipcart.ready', () => {
 
