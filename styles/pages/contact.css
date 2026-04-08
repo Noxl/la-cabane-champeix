@@ -1,0 +1,99 @@
+/* ================================================
+   contact.css — Contact page layout & form
+   ================================================ */
+
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 40px;
+}
+
+.left-contact-section {
+  flex: 1;
+}
+
+.right-contact-section {
+  flex: 1;
+  max-width: 40rem;
+  padding: 2rem 1rem;
+}
+
+.contact-intro + * {
+  margin-top: 1rem;
+}
+
+.contact-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.contact-description {
+  color: #6b7280;
+}
+
+.form-group-container {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 0.4rem;
+  font-size: 15px;
+}
+
+.form-input,
+.form-textarea {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-family: var(--font-main);
+  font-size: 15px;
+  width: 100%;
+  transition: outline var(--transition);
+}
+
+.form-input {
+  height: 2.6rem;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-submit {
+  width: 100%;
+  margin-top: 1.2rem;
+  background-color: var(--color-primary-dk);
+  color: #fff;
+  padding: 13px;
+  border: none;
+  border-radius: 0.375rem;
+  font-family: var(--font-main);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.form-submit:hover {
+  background-color: var(--color-primary);
+}

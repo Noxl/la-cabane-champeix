@@ -1,6 +1,5 @@
-// script.js — La Cabane
-// Handles Snipcart account menu interactions
 
+// Handles Snipcart account menu interactions
 document.addEventListener('snipcart.ready', () => {
 
   // Wait for the header to be injected by header.js

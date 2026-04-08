@@ -1,0 +1,50 @@
+/* ================================================
+   footer.css — Pre-footer info band & footer bar
+   ================================================ */
+
+/* ---- Pre-footer ---- */
+#pre_footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 30px 20px;
+  background-color: var(--color-prefooter-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+#pre_footer > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+#pre_footer h2 {
+  font-size: 17px;
+  color: #555;
+  margin: 0 0 8px;
+}
+
+#pre_footer p {
+  font-size: 14px;
+  color: #777;
+  margin: 1px 0;
+  line-height: 1.4;
+}
+
+#center_column img {
+  width: 110px;
+}
+
+/* ---- Footer ---- */
+footer {
+  text-align: center;
+  padding: 22px;
+  background-color: var(--color-footer-bg);
+  color: #666;
+  font-size: 14px;
+  border-top: 1px solid var(--color-border);
+}

@@ -1,0 +1,38 @@
+/* ================================================
+   navbar.css — Main sticky navigation menu
+   ================================================ */
+
+#menu {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background-color: var(--color-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-nav);
+  gap: 4px;
+}
+
+#menu .logo img {
+  width: 50px;
+  margin-right: 12px;
+  display: block;
+}
+
+#menu li a {
+  display: block;
+  color: white;
+  padding: 16px 18px;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+#menu li a:hover,
+#menu li a.active {
+  background-color: var(--color-primary-dk);
+  transform: scaleX(1.04);
+}

@@ -1,0 +1,87 @@
+/* ================================================
+   responsive.css — Tablet & mobile layout (< 800px)
+   ================================================ */
+
+@media (max-width: 800px) {
+
+  /* ---- Top bar ---- */
+  #connection-menu {
+    padding: 4px 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  #connection-menu .title {
+    display: none;
+  }
+
+  #connection-menu .left {
+    display: none;
+  }
+
+  /* ---- Navbar ---- */
+  #menu {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    position: static;
+  }
+
+  #menu .logo {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  #menu .logo img {
+    width: 44px;
+    margin: 0;
+  }
+
+  #menu li a {
+    text-align: center;
+    border-radius: 0;
+    padding: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  #menu li a:hover,
+  #menu li a.active {
+    transform: none;
+    background-color: var(--color-primary-dk);
+  }
+
+  /* ---- Account dropdown ---- */
+  .account-dropdown {
+    right: 0;
+    left: auto;
+    top: calc(100% + 4px);
+  }
+
+  /* ---- Pre-footer ---- */
+  #pre_footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+  }
+
+  /* ---- Contact page ---- */
+  .contact-section {
+    flex-direction: column;
+    margin: 20px 16px;
+  }
+
+  .right-contact-section {
+    padding: 0;
+  }
+
+  /* ---- Boutique ---- */
+  .product-grid {
+    padding: 20px 16px 48px;
+    gap: 18px;
+  }
+
+  .shop-header h1 {
+    font-size: 1.8rem;
+  }
+}
